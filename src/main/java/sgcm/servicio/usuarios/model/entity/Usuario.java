@@ -9,30 +9,37 @@ import javax.persistence.Table;
 
 @Entity 
 @Table(name= "usuarios")
-public class Persona implements Serializable {
+public class Usuario implements Serializable {
     
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private int id_usuarios;
     private String nombres;  
     private String apellidos;
-    private String correo;
     private String username;
     private String password;
+    private Rol rol;
 
-    public Persona() {
+    public Usuario() {
     }
 
-    public Persona(int id_usuarios, String nombres, String apellidos, String correo, String username, String password) {
+    public Usuario(int id_usuarios, String nombres, String apellidos, String username, String password, Rol rol) {
         this.id_usuarios = id_usuarios;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.correo = correo;
         this.username = username;
         this.password = password;
+        this.rol = rol;
     }
 
-    
+    public int getId_usuarios() {
+        return id_usuarios;
+    }
+
+    public void setId_usuarios(int id_usuarios) {
+        this.id_usuarios = id_usuarios;
+    }
+
     public String getNombres() {
         return nombres;
     }
@@ -47,14 +54,6 @@ public class Persona implements Serializable {
 
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
     }
 
     public String getUsername() {
@@ -72,13 +71,14 @@ public class Persona implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    
-    public int getId_usuarios() {
-        return id_usuarios;
+
+    public Rol getRol() {
+        return rol;
     }
 
-    public void setId_usuarios(int id_usuarios) {
-        this.id_usuarios = id_usuarios;
+    public void setRol(Rol rol) {
+        this.rol = rol;
     }
+    
+    private static final long serialVersionUID = 1L;
 }
