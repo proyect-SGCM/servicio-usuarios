@@ -14,22 +14,20 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue( strategy = GenerationType.IDENTITY )
     private int id_usuarios;
-    private String nombres;  
-    private String apellidos;
+    private String cedula;
     private String username;
     private String password;
-    private Rol rol;
+    private int id_rol;
 
     public Usuario() {
     }
 
-    public Usuario(int id_usuarios, String nombres, String apellidos, String username, String password, Rol rol) {
+    public Usuario(int id_usuarios, String cedula, String username, String password, int id_rol) {
         this.id_usuarios = id_usuarios;
-        this.nombres = nombres;
-        this.apellidos = apellidos;
+        this.cedula = cedula;
         this.username = username;
         this.password = password;
-        this.rol = rol;
+        this.id_rol = id_rol;
     }
 
     public int getId_usuarios() {
@@ -40,20 +38,12 @@ public class Usuario implements Serializable {
         this.id_usuarios = id_usuarios;
     }
 
-    public String getNombres() {
-        return nombres;
+    public String getCedula() {
+        return cedula;
     }
 
-    public void setNombres(String nombres) {
-        this.nombres = nombres;
-    }
-
-    public String getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(String apellidos) {
-        this.apellidos = apellidos;
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public String getUsername() {
@@ -72,13 +62,15 @@ public class Usuario implements Serializable {
         this.password = password;
     }
 
-    public Rol getRol() {
-        return rol;
+    public int getId_rol() {
+        return id_rol;
     }
 
-    public void setRol(Rol rol) {
-        this.rol = rol;
+    public void setId_rol(int id_rol) {
+        this.id_rol = id_rol;
     }
-    
+
+
+
     private static final long serialVersionUID = 1L;
 }

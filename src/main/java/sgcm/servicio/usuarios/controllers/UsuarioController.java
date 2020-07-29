@@ -47,8 +47,8 @@ public class UsuarioController {
         return userservice.getUsuarios();
     }
 
-    @GetMapping("/medico/{id}")
-    public ResponseEntity<?> verMedico(@PathVariable int id) {
+    @GetMapping("/usuario/{id}")
+    public ResponseEntity<?> verUsuario(@PathVariable int id) {
 
         Usuario user = null;
         Map<String, Object> response = new HashMap<>();
@@ -73,11 +73,10 @@ public class UsuarioController {
     @ResponseStatus(HttpStatus.CREATED)
     public Usuario editarPersona(@RequestBody Usuario usuario, @PathVariable Integer id) {
         Usuario usuarioAcutal = userservice.findById(id);
-        usuarioAcutal.setNombres(usuario.getNombres());
-        usuarioAcutal.setApellidos(usuario.getApellidos());
+        usuarioAcutal.setCedula(usuario.getCedula());
         usuarioAcutal.setUsername(usuario.getUsername());
         usuarioAcutal.setPassword(usuario.getPassword());
-        usuarioAcutal.setRol(usuario.getRol());
+        usuarioAcutal.setId_rol(usuario.getId_rol());
         return userservice.addUsuario(usuarioAcutal);
     }
 
